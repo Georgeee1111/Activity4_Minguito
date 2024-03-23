@@ -1,0 +1,178 @@
+// Custom styles for the webpage
+
+// Colors
+$primary-color: #6f42c1;
+$secondary-color: #ff33aa;
+$accent-color: #ffd700;
+$body-bg: #ff9ce6; 
+$navbar-bg: #6f42c1; 
+$text-gradient1: #6a1b9a, #283593, #1565c0;
+$text-gradient2: #fa709a, #fee140, #ff9ce6;
+$nav-color: #1abc9c;
+
+// Mixin for gradient background
+@mixin gradient-background($colors...) {
+  background: linear-gradient(to right, $colors);
+  background-size: 200% 200%;
+  animation: morphingGradient 5s linear infinite;
+}
+
+// Mixin for text gradient
+@mixin text-gradient($colors) {
+  background: linear-gradient(to right, $colors);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+* {
+  color: white;
+}
+
+// Using gradient colors for the elements
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+  background-color: $body-bg; // Set the pinkish shade for body background
+  @include gradient-background($body-bg, $primary-color, $accent-color);
+}
+
+.sidebar {
+  @include gradient-background($primary-color, $secondary-color, $accent-color);
+}
+
+nav {
+  background-color: $navbar-bg; // Set the different color for navbar background
+}
+
+nav ul li a.nav-link:hover {
+  color: $nav-color !important;
+}
+
+.Jasmin {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+}
+
+.nav-item {
+  font-family: "Tangerine", cursive;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 2rem;
+}
+
+.btn {
+  transition: 0.3s !important;
+}
+
+.btn:hover {
+  border-top-right-radius: 4px !important;
+  border-top-left-radius: 4px !important;
+}
+
+#home,
+#education,
+#services,
+#hobbies,
+#skills,
+#services {
+  font-family: Calibri;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+}
+
+#home .container h1 span {
+  @include text-gradient($text-gradient1);
+}
+
+#home .container h1 span.second-text {
+  @include text-gradient($text-gradient2);
+}
+
+#home .container h1 {
+  font-size: 5rem;
+}
+
+#home .container a {
+  @include text-gradient($text-gradient1);
+  font-size: 1.5rem;
+}
+
+#services .span-container span,
+#education .span-container span,
+#hobbies .span-container span,
+#skills .span-container span {
+  @include text-gradient($text-gradient1);
+}
+
+#services .span-container h1,
+#education .span-container h1,
+#hobbies .span-container h1,
+#skills .span-container h1 {
+  font-size: 4rem;
+  @include text-gradient($text-gradient2);
+}
+
+.card {
+  @include gradient-background($body-bg, $primary-color, $accent-color);
+  width: 22rem;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: scale(1.1);
+}
+
+#services {
+  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+}
+
+.progress {
+  margin: 1rem;
+  height: 20px;
+  border-radius: 10px;
+  position: relative;
+}
+
+.progress-filled {
+  height: 100%;
+  background: linear-gradient(45deg, #ff0000, #00ff00, #0000ff); 
+  background-size: 200% 200%;
+  animation: morphingGradient 5s ease infinite;
+  width: 90%; 
+  border-radius: 10px;
+}
+
+.progress-blank {
+  height: 100%;
+  width: 10%; 
+  border-radius: 10px;
+  position: absolute;
+  top: 0;
+  left: 90%; 
+}
+
+.progress-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes morphingGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+// importing bootstrap after the custom style is considered good practice
+@import '../node_modules/bootstrap/scss/bootstrap';
