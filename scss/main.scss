@@ -28,7 +28,7 @@ $nav-color: #1abc9c;
   color: white;
 }
 
-// Using gradient colors for the elements
+
 html {
   scroll-behavior: smooth;
 }
@@ -37,6 +37,8 @@ body {
   overflow-x: hidden;
   background-color: $body-bg; // Set the pinkish shade for body background
   @include gradient-background($body-bg, $primary-color, $accent-color);
+  width: 100%;
+  height: 100vh;
 }
 
 .sidebar {
@@ -117,7 +119,8 @@ nav ul li a.nav-link:hover {
 
 .card {
   @include gradient-background($body-bg, $primary-color, $accent-color);
-  width: 22rem;
+  width: 100%; /* Make the width 100% */
+  max-width: 22rem; /* Set the maximum width to 22rem */
   transition: 0.3s;
   cursor: pointer;
 }
@@ -171,6 +174,14 @@ nav ul li a.nav-link:hover {
   }
   100% {
     background-position: 0% 50%;
+  }
+}
+@media (min-width: 992px) {
+  #education,
+  #hobbies,
+  #skills,
+  #services {
+    height: 100vh;
   }
 }
 
