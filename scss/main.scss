@@ -33,21 +33,22 @@ html {
   scroll-behavior: smooth;
 }
 
+main {
+  @include gradient-background($body-bg, $primary-color, $accent-color);
+}
+  
+
 body {
   overflow-x: hidden;
   background-color: $body-bg; // Set the pinkish shade for body background
-  @include gradient-background($body-bg, $primary-color, $accent-color);
   width: 100%;
   height: 100vh;
 }
 
 .sidebar {
-  @include gradient-background($primary-color, $secondary-color, $accent-color);
+   @include gradient-background($sidebar-color, $sidebar-color1, $sidebar-color2)
 }
 
-nav {
-  background-color: $navbar-bg; // Set the different color for navbar background
-}
 
 nav ul li a.nav-link:hover {
   color: $nav-color !important;
